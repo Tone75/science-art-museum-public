@@ -1,0 +1,249 @@
+.gallery-intro > .gallery-tour-entry {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  text-align: end;
+}
+
+#tour-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--pop-violet);
+  border-color: var(--pop-violet);
+  color: var(--ink-inverse);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#tour-start span {
+  color: var(--ink-inverse);
+  font-size: 12px;
+}
+
+#restore-edit {
+  margin-top: 6px;
+}
+
+body[data-museum-route="tour"] {
+  isolation: isolate;
+}
+
+body[data-museum-route="tour"] footer {
+  display: none;
+}
+
+#tour {
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(14px, 2.2vh, 24px) 0 22px;
+}
+
+#tour[data-work-id="tide"] {
+  --tour-accent: var(--pop-violet);
+}
+
+#tour[data-work-id="twin"] {
+  --tour-accent: var(--pop-cobalt);
+}
+
+#tour[data-work-id="petals"] {
+  --tour-accent: var(--pop-red);
+}
+
+.tour-work {
+  width: min(100%, max(240px, calc(100svh - 284px)), 780px);
+  margin-inline: auto;
+  display: grid;
+  justify-items: center;
+  gap: clamp(14px, 2vh, 22px);
+}
+
+#tour-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background: var(--bg-canvas);
+  outline: 1.5px solid var(--border-artwork);
+}
+
+.tour-label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  padding: 13px clamp(14px, 2vw, 22px) 11px;
+  border: 1.5px solid var(--ink-primary);
+  border-top: 4px solid var(--tour-accent, var(--pop-violet));
+  border-radius: var(--radius-sharp);
+  background: var(--bg-surface);
+}
+
+.tour-caption {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.tour-progress,
+#tour-phase {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+#tour-position {
+  margin-inline-start: 6px;
+  color: var(--tour-accent, var(--pop-violet));
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+#tour-title {
+  font: 800 clamp(21px, 2vw, 26px)/1.2 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+#tour-phase {
+  margin-inline-start: auto;
+  color: var(--ink-muted);
+}
+
+#tour-title:focus-visible {
+  outline-offset: 3px;
+}
+
+.tour-controls,
+.tour-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.tour-controls {
+  margin-top: 8px;
+}
+
+.tour-navigation {
+  margin-inline-start: auto;
+}
+
+#tour:not([data-status="ended"]) #tour-takeover:not(:disabled) {
+  color: var(--ink-inverse);
+  background: var(--tour-accent, var(--pop-violet));
+  border-color: var(--tour-accent, var(--pop-violet));
+  font-weight: 700;
+}
+
+#tour[data-status="ended"] #tour-replay {
+  color: var(--ink-inverse);
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  font-weight: 700;
+}
+
+.tour-navigation button {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-secondary);
+  padding-inline: 10px;
+}
+
+.tour-notes {
+  margin-top: 5px;
+  min-height: 1.55em;
+  color: var(--ink-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+#tour-status {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+#tour[data-status="error"] #tour-status {
+  color: var(--error-ink);
+}
+
+#tour-status:not(:empty) + #tour-takeover-help {
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+}
+
+@media (hover: hover) {
+  #tour-start:hover {
+    background: var(--pop-violet-hover);
+    border-color: var(--pop-violet-hover);
+    color: var(--ink-inverse);
+  }
+
+  .tour-navigation button:hover {
+    background: var(--bg-raised);
+    color: var(--ink-primary);
+  }
+
+  #tour:not([data-status="ended"]) #tour-takeover:not(:disabled):hover,
+  #tour[data-status="ended"] #tour-replay:hover {
+    background: var(--ink-primary);
+    border-color: var(--ink-primary);
+    color: var(--ink-inverse);
+  }
+}
+
+@media (max-width: 700px) {
+  .gallery-intro > .gallery-tour-entry {
+    justify-items: start;
+    text-align: start;
+  }
+
+  .artwork-actions > #restore-edit {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .tour-caption {
+    column-gap: 10px;
+  }
+
+  .tour-controls {
+    gap: 4px;
+  }
+
+  .tour-controls button {
+    padding-inline: 10px;
+  }
+}
+
+/* Subtle architectural tint during room passage; print, dock, and focus ring retain full clarity. */
+@media (prefers-reduced-motion: no-preference) {
+  body[data-museum-route="tour"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: #0e0e18;
+    opacity: 0;
+    transition: opacity 550ms ease-in-out;
+  }
+
+  body[data-museum-route="tour"]:has(#tour[data-phase="passage"]:is([data-work-id="tide"], [data-work-id="twin"]))::before {
+    opacity: 0.08;
+  }
+}

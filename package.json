@@ -1,0 +1,24 @@
+{
+  "name": "science-art-museum",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/verify-art-assets.mjs && tsc --noEmit && vite build",
+    "build:pages": "npm run build -- --mode pages",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "generate:parameter-map": "node scripts/generate-parameter-map.mjs --write",
+    "generate:live-art": "node scripts/generate-live-art.mjs --write"
+  },
+  "devDependencies": {
+    "playwright": "1.65.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.6"
+  },
+  "engines": {
+    "node": ">=25.9.0"
+  }
+}

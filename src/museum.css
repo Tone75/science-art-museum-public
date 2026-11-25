@@ -1,0 +1,1672 @@
+/*
+ * Science × Art Museum — Omotesando Pop Contemporary Design System
+ *
+ * Crisp gallery chalk walls, architectural Ink Black typography & rules,
+ * and restrained Electric Violet / Cobalt Blue / Vivid Red editorial accents
+ * framing three distinct, high-chroma mathematical POP artworks.
+ */
+:root {
+  color-scheme: light;
+
+  /* 1. Spatial surfaces — Omotesando white cube & exhibition paper */
+  --bg-wall: #f5f4f0;
+  --bg-surface: #ffffff;
+  --bg-raised: #eceaf3;
+  --bg-hover: #e3e0ee;
+  --bg-canvas: #0d0b1a;
+  --bg-scrim: rgb(13 11 26 / 68%);
+
+  /* 2. Ink hierarchy — deep Ink Black to cool editorial slate (all >= 5.5:1 on surfaces) */
+  --ink-primary: #0e0e18;
+  --ink-secondary: #343448;
+  --ink-muted: #55556b;
+  --ink-disabled: #8a8aa0;
+  --ink-inverse: #ffffff;
+
+  /* 3. Architectural rules & borders */
+  --hairline: rgb(14 14 24 / 13%);
+  --border-subtle: rgb(14 14 24 / 22%);
+  --border-strong: #0e0e18;
+  --border-artwork: rgb(14 14 24 / 16%);
+
+  /* 4. Signature POP editorial accents — solid pigment, zero neon glow */
+  --pop-violet: #6824f5;
+  --pop-violet-hover: #5214d6;
+  --pop-cobalt: #1642e8;
+  --pop-cobalt-hover: #0e32bf;
+  --pop-red: #df1847;
+  --pop-red-hover: #be113a;
+
+  --accent-solid: var(--pop-violet);
+  --accent-solid-hover: var(--pop-violet-hover);
+  --accent-ink-solid: #0e0e18;
+  --accent-selected-bg: #f1ecff;
+  --accent-selected-border: #0e0e18;
+  --accent-signal: var(--pop-violet);
+  --focus-ring: #1642e8;
+  --error-ink: #c2123b;
+  --work-accent: var(--pop-violet);
+
+  /* 5. Typography — Tokyo Swiss-Grotesk display & sans + crisp tabular mono */
+  --font-display: "Helvetica Neue", "Avenir Next", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-serif: var(--font-display);
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* 6. Radii, rhythm & touch standard */
+  --radius-sharp: 2px;
+  --radius-panel: 4px;
+  --radius-pill: 999px;
+  --touch-min: 44px;
+  --motion-fast: 150ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Compatibility aliases for shared extensions */
+  --wall: var(--bg-wall);
+  --surface: var(--bg-surface);
+  --raised: var(--bg-raised);
+  --ink: var(--ink-primary);
+  --muted: var(--ink-muted);
+  --line: var(--hairline);
+  --edge: var(--border-subtle);
+  --accent: var(--accent-solid);
+  --on-accent: var(--ink-inverse);
+  --highlight: var(--accent-selected-bg);
+  --error: var(--error-ink);
+  --focus: var(--focus-ring);
+  --serif: var(--font-serif);
+
+  font: 100%/1.55 var(--font-sans);
+  color: var(--ink-primary);
+  background: var(--bg-wall);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  padding-top: 4px;
+  background-color: var(--bg-wall);
+  /* Crisp 4px tri-color Bauhaus/Tokyo exhibition bar — solid hard stops, never a soft neon gradient */
+  background-image: linear-gradient(
+    90deg,
+    var(--pop-violet) 0 34%,
+    var(--pop-cobalt) 34% 67%,
+    var(--pop-red) 67% 100%
+  );
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  color: var(--ink-primary);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+#app {
+  width: min(calc(100% - clamp(32px, 7vw, 112px)), 1340px);
+  margin-inline: auto;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: 1.5px;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+a,
+summary {
+  touch-action: manipulation;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+button {
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: 8px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sharp);
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+button:disabled,
+button[aria-disabled="true"] {
+  color: var(--ink-disabled);
+  border-color: var(--hairline);
+  background: transparent;
+  cursor: default;
+}
+
+button[aria-pressed="true"] {
+  border-color: var(--border-strong);
+  color: var(--ink-primary);
+  background: var(--accent-selected-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font: 700 1em/1.15 var(--font-display);
+}
+
+p,
+dd,
+output {
+  overflow-wrap: anywhere;
+}
+
+:where(p):empty {
+  display: none;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 10px;
+  left: 10px;
+  background: var(--ink-primary);
+  color: var(--ink-inverse);
+  padding: 12px 18px;
+  border-radius: var(--radius-sharp);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  clip-path: inset(50%);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  opacity: 1;
+  pointer-events: auto;
+  clip-path: none;
+  transform: none;
+}
+
+/* ==========================================================================
+   Masthead & Footer — Sharp Omotesando gallery signage
+   ========================================================================== */
+.masthead,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.masthead {
+  min-height: 54px;
+  border-bottom: 1.5px solid var(--ink-primary);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--touch-min);
+  text-decoration: none;
+  font: 700 17px/1.1 var(--font-display);
+  letter-spacing: -0.015em;
+  color: var(--ink-primary);
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ink-primary);
+  color: var(--ink-inverse);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.masthead > span,
+footer {
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+footer {
+  padding-block: 10px 14px;
+  border-top: 1px solid var(--hairline);
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  text-decoration: none;
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   Gallery — Crisp White Cube × High-Chroma Tokyo Pop Triptych
+   ========================================================================== */
+#gallery {
+  padding-bottom: clamp(16px, 2vw, 26px);
+}
+
+.gallery-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-block: clamp(16px, 2.2vw, 26px) clamp(16px, 2vw, 24px);
+}
+
+.gallery-intro > div {
+  flex: none;
+}
+
+.section-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-secondary);
+  font: 700 11px/1 var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-caption::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--pop-red);
+  display: inline-block;
+}
+
+#gallery-title {
+  margin-top: 8px;
+  font: 800 clamp(44px, 5.2vw, 74px)/0.96 var(--font-display);
+  letter-spacing: -0.04em;
+  color: var(--ink-primary);
+}
+
+#gallery-title em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--pop-violet);
+}
+
+.gallery-lead {
+  max-width: none;
+  color: var(--ink-secondary);
+  font-size: 13px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  padding-bottom: 2px;
+}
+
+.resume-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+  padding: 4px 14px 4px 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--pop-cobalt);
+  border-radius: var(--radius-sharp);
+}
+
+.resume-line button {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-primary);
+  font-weight: 700;
+  padding-inline: 12px;
+}
+
+.resume-line > span {
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 34px);
+  counter-reset: gallery-work;
+}
+
+.gallery-work {
+  min-width: 0;
+  counter-increment: gallery-work;
+}
+
+.gallery-work[data-work-id="tide"] {
+  --work-accent: var(--pop-violet);
+}
+
+.gallery-work[data-work-id="twin"] {
+  --work-accent: var(--pop-cobalt);
+}
+
+.gallery-work[data-work-id="petals"] {
+  --work-accent: var(--pop-red);
+}
+
+.work-choice {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.work-image {
+  display: block;
+  padding: 0;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-artwork);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.work-choice img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.work-caption {
+  margin-top: 13px;
+  padding: 2px 0 13px;
+  border-bottom: 2px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+.work-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 800 clamp(21px, 1.8vw, 26px)/1.2 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+.work-name::before {
+  content: counter(gallery-work, decimal-leading-zero);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  border-radius: 2px;
+  background: var(--work-accent);
+  color: var(--ink-inverse);
+  font: 700 11px/1 var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.work-note {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  color: var(--ink-muted);
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.work-link {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--ink-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.work-link span {
+  display: inline-block;
+  margin-left: 3px;
+  color: var(--work-accent);
+}
+
+.image-error {
+  padding-top: 8px;
+  font-size: 12px;
+  color: var(--error-ink);
+}
+
+/* ==========================================================================
+   Exhibit Studio — Bright Graphic Studio + Crisp Tactile Instrument Console
+   ========================================================================== */
+#exhibit {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+#exhibit[data-work-id="tide"] {
+  --work-accent: var(--pop-violet);
+}
+
+#exhibit[data-work-id="twin"] {
+  --work-accent: var(--pop-cobalt);
+}
+
+#exhibit[data-work-id="petals"] {
+  --work-accent: var(--pop-red);
+}
+
+.exhibit-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding-block: 4px 10px;
+}
+
+.work-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 18px;
+  min-width: 0;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  flex-basis: 100%;
+  margin-bottom: -2px;
+}
+
+.breadcrumb a {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink-primary);
+  text-decoration: none;
+  padding-right: 4px;
+}
+
+.breadcrumb span {
+  color: var(--ink-disabled);
+}
+
+#live-work-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
+  font: 800 clamp(30px, 2.8vw, 40px)/1.12 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+#live-work-title::before {
+  content: "";
+  width: 6px;
+  height: 0.78em;
+  background: var(--work-accent);
+  flex: none;
+}
+
+#live-work-title:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--focus-ring);
+  text-decoration-thickness: 2.5px;
+}
+
+.artwork-actions {
+  max-width: min(54%, 460px);
+  text-align: right;
+}
+
+.artwork-action-buttons,
+.save-downloads,
+.save-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.artwork-action-buttons {
+  justify-content: flex-end;
+}
+
+#save-entry:not([aria-disabled="true"]) {
+  background: var(--accent-ink-solid);
+  border-color: var(--accent-ink-solid);
+  color: var(--ink-inverse);
+  font-weight: 700;
+}
+
+#save-png:not(:disabled) {
+  background: var(--pop-violet);
+  border-color: var(--pop-violet);
+  color: var(--ink-inverse);
+  font-weight: 700;
+}
+
+#load-entry {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--ink-primary);
+}
+
+#save-eligibility,
+#saved-target-note,
+#load-state {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+#saved-target-note {
+  color: var(--pop-cobalt);
+  font-weight: 600;
+}
+
+.studio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 372px);
+  align-items: start;
+  gap: clamp(24px, 3.8vw, 52px);
+}
+
+/* Left stage: pure square artwork aligned to heading plumb line */
+.art-frame {
+  position: sticky;
+  top: 16px;
+  min-width: 0;
+  width: min(100%, max(280px, calc(100dvh - 208px)));
+  justify-self: start;
+}
+
+#canvas-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--bg-canvas);
+  outline: 1.5px solid var(--border-artwork);
+}
+
+#art-canvas,
+#parameter-map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#art-canvas {
+  touch-action: none;
+  cursor: grab;
+}
+
+#art-canvas:active {
+  cursor: grabbing;
+}
+
+#art-placeholder,
+#parameter-map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: 16px;
+  background: var(--bg-surface);
+  color: var(--ink-secondary);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding-block: 10px 6px;
+  min-height: 38px;
+}
+
+#display-settings {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+#ux-status {
+  font-size: 12px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+#ux-status[data-state="rendering"] {
+  color: var(--pop-violet);
+  font-weight: 600;
+}
+
+/* Right console: crisp industrial-graphic instrument panel */
+.creation-panel {
+  min-width: 0;
+  counter-reset: studio-tool;
+}
+
+.tool {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+  counter-increment: studio-tool;
+}
+
+.tool:first-child {
+  padding-top: 0;
+}
+
+.tool h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 14px/1.25 var(--font-display);
+  letter-spacing: 0.06em;
+  color: var(--ink-primary);
+}
+
+.tool h2::before {
+  content: counter(studio-tool, decimal-leading-zero);
+  font: 700 11px/1 var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--pop-violet);
+}
+
+.hint {
+  margin-block: 2px 5px;
+  color: var(--ink-muted);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+/* 01 Parameter Map */
+.parameter-map-frame {
+  width: 100%;
+  position: relative;
+  background: var(--bg-canvas);
+  outline: 1.5px solid var(--border-artwork);
+}
+
+#parameter-map {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.parameter-marker {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border: 2.5px solid #ffffff;
+  border-radius: 100%;
+  box-shadow: 0 0 0 2px #0e0e18, inset 0 0 0 1.5px #0e0e18;
+}
+
+.candidate-marker {
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--pop-red);
+  border-radius: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 0 2px #ffffff, inset 0 0 0 1px #0e0e18;
+}
+
+#parameter-status,
+#framing-status,
+#parameter-pending {
+  margin-top: 5px;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+#parameter-status[data-state="applied"],
+#framing-status[data-state="applied"] {
+  display: none;
+}
+
+#parameter-status[data-state="rejected"],
+#parameter-status[data-state="map-error"],
+#framing-status[data-state="rejected"],
+#ux-status:is([data-state="input-error"], [data-state="render-error"]),
+#draft-notice {
+  color: var(--error-ink);
+  font-weight: 600;
+}
+
+/* 02 Palette swatches — 3 primary POP pigment chips + compact archive row */
+.palette-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.palette-group-label {
+  margin-top: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.palette-archive-list {
+  margin-top: 4px;
+}
+
+.palette {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 6px 6px 5px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.palette-archive {
+  padding: 5px 6px 4px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: var(--bg-wall);
+  border-color: var(--hairline);
+}
+
+.palette[aria-pressed="true"] {
+  color: var(--ink-primary);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--ink-primary);
+  box-shadow: inset 0 -2.5px 0 0 var(--pop-violet);
+}
+
+.palette[aria-pressed="true"]::after {
+  content: "✓";
+  position: absolute;
+  right: 5px;
+  bottom: 4px;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--pop-violet);
+}
+
+.palette-swatch {
+  display: block;
+  width: 100%;
+  height: 11px;
+  border-radius: 1px;
+  border: 1px solid rgb(14 14 24 / 12%);
+}
+
+.palette-archive .palette-swatch {
+  height: 7px;
+}
+
+/* POP palettes */
+.violet-pop {
+  background: linear-gradient(90deg, #0d0b1a 0%, #2838e4 28%, #7a28ff 50%, #f8205c 76%, #fcf4ff 100%);
+}
+
+.cobalt-pop {
+  background: linear-gradient(90deg, #0e185c 0%, #1634ce 24%, #2662ff 45%, #ece6ff 64%, #f21a48 84%, #f21a48 100%);
+}
+
+.crimson-pop {
+  background: linear-gradient(90deg, #faf6f8 0%, #f61c50 32%, #8e22fc 62%, #1e48fa 86%, #7092ff 100%);
+}
+
+/* Legacy Archive Palettes (preserved) */
+.lagoon {
+  background: linear-gradient(90deg, #152333, #266d84, #abe3c9);
+}
+
+.ember {
+  background: linear-gradient(90deg, #42142e, #ae5734, #f6df8b);
+}
+
+.porcelain {
+  background: linear-gradient(90deg, #13222f, #456367, #efe5d1, #a46f45, #f4ecdb);
+}
+
+/* 03 Composition — Precision optical stepper & crisp D-pad */
+.composition-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.framing-zoom,
+.framing-pan {
+  display: grid;
+  align-items: center;
+  justify-content: start;
+}
+
+.framing-zoom {
+  grid-template-columns: var(--touch-min) minmax(48px, 1fr) var(--touch-min);
+  max-width: 176px;
+  gap: 0;
+}
+
+.framing-zoom button {
+  padding: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+#zoom-out {
+  border-radius: var(--radius-sharp) 0 0 var(--radius-sharp);
+}
+
+#zoom-in {
+  border-radius: 0 var(--radius-sharp) var(--radius-sharp) 0;
+}
+
+#zoom-level {
+  display: grid;
+  place-items: center;
+  height: var(--touch-min);
+  padding-inline: 6px;
+  background: var(--bg-wall);
+  border-block: 1px solid var(--border-subtle);
+  text-align: center;
+  font: 700 12.5px/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-primary);
+  white-space: nowrap;
+}
+
+#reset-composition {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--ink-secondary);
+  font-size: 12px;
+}
+
+.framing-pan {
+  position: relative;
+  grid-template-columns: repeat(3, var(--touch-min));
+  grid-template-rows: repeat(3, var(--touch-min));
+  gap: 2px;
+}
+
+.framing-pan::before {
+  content: "";
+  grid-area: 2 / 2;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: var(--pop-violet);
+  justify-self: center;
+  align-self: center;
+  pointer-events: none;
+}
+
+.framing-pan button {
+  padding: 6px;
+  font: 600 15px/1 var(--font-sans);
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--ink-primary);
+}
+
+#pan-up {
+  grid-area: 1 / 2;
+}
+
+#pan-left {
+  grid-area: 2 / 1;
+}
+
+#pan-right {
+  grid-area: 2 / 3;
+}
+
+#pan-down {
+  grid-area: 3 / 2;
+}
+
+#zoom-limit-reason {
+  display: block;
+  min-height: 1.45em;
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+/* Utility controls & Secondary details */
+.render-actions,
+.quality-list,
+.iteration-list,
+.preset-list,
+.work-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.render-actions {
+  margin-block: 6px;
+}
+
+.render-actions button {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--ink-secondary);
+  font-size: 12px;
+}
+
+#stop-render:not([aria-disabled="true"]) {
+  border-color: var(--ink-primary);
+  color: var(--ink-primary);
+  background: var(--bg-surface);
+  font-weight: 700;
+}
+
+#draft-notice {
+  margin-block: 6px;
+  font-size: 12px;
+}
+
+details > summary {
+  min-height: var(--touch-min);
+  padding-block: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-primary);
+}
+
+details > summary::marker {
+  color: var(--pop-violet);
+  font-size: 0.8em;
+}
+
+.creation-panel details {
+  padding: 1px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.creation-panel details[open] {
+  padding-bottom: 12px;
+}
+
+#parameter-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+#parameter-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+#parameter-form input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: var(--touch-min);
+  padding-inline: 10px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sharp);
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  font: 500 14px/1.5 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+#parameter-apply {
+  justify-self: start;
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  color: var(--ink-inverse);
+  font-weight: 700;
+}
+
+.quality-list,
+.iteration-list,
+.preset-list {
+  margin-block: 6px 10px;
+}
+
+.preset-list button,
+.quality-list button,
+.iteration-list button {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+#display-options p {
+  margin-block: 10px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+#display-options dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 14px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--hairline);
+  font-size: 12px;
+}
+
+#display-options dt {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+#display-options dd {
+  margin: 0;
+  color: var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.work-actions {
+  border-top: 1px solid var(--hairline);
+  padding-block: 10px;
+  justify-content: space-between;
+  gap: 8px 14px;
+}
+
+.work-actions button {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--ink-secondary);
+  font-size: 12px;
+}
+
+.work-actions a {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+/* Exhibition notes below studio */
+#explanation {
+  margin: 24px 0 36px;
+  padding-block: 6px;
+  border-block: 1.5px solid var(--ink-primary);
+}
+
+#explanation > summary {
+  font: 700 17px/1.45 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+#explanation[open] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  align-items: start;
+  gap: 10px 48px;
+  padding-bottom: 24px;
+}
+
+#explanation[open] > summary {
+  grid-column: 1 / -1;
+}
+
+#explanation p {
+  max-width: 62ch;
+  margin: 8px 0 14px;
+  color: var(--ink-secondary);
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+
+#explanation .equation {
+  font: 700 22px/1.4 var(--font-mono);
+  letter-spacing: 0.02em;
+  color: var(--pop-violet);
+  padding-block: 4px;
+}
+
+#math-details {
+  margin-top: 2px;
+  padding: 2px 0 4px 20px;
+  border-left: 2px solid var(--pop-cobalt);
+}
+
+#math-details > summary {
+  color: var(--ink-primary);
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   Save Dialog — Omotesando Exhibition Print Certificate
+   ========================================================================== */
+#save-dialog {
+  width: min(476px, calc(100% - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 2px solid var(--ink-primary);
+  border-radius: var(--radius-sharp);
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  box-shadow: 0 24px 64px rgb(13 11 26 / 26%);
+}
+
+#save-dialog::backdrop {
+  background: var(--bg-scrim);
+  backdrop-filter: blur(6px);
+}
+
+.save-dialog-body {
+  padding: clamp(20px, 3vw, 28px);
+}
+
+.save-dialog-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+#save-title {
+  font: 800 clamp(22px, 2.5vw, 26px)/1.15 var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--ink-primary);
+}
+
+#save-close {
+  background: transparent;
+  border-color: transparent;
+  padding-inline: 8px;
+  color: var(--ink-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.save-subject {
+  padding: 14px 16px;
+  margin-block: 14px 16px;
+  background: var(--bg-wall);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--pop-violet);
+  border-radius: var(--radius-sharp);
+}
+
+#save-settings {
+  white-space: pre-line;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--ink-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+#save-target-note,
+#save-status,
+#save-capture-reason {
+  margin-top: 8px;
+  color: var(--ink-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+#save-status {
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+
+.save-downloads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.save-downloads button {
+  text-align: left;
+  padding: 12px 14px;
+  min-width: 0;
+}
+
+#save-json:not(:disabled) {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--ink-primary);
+  color: var(--ink-primary);
+}
+
+.save-downloads strong,
+.save-downloads small {
+  display: block;
+}
+
+.save-downloads strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.save-downloads small {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding-top: 3px;
+  color: inherit;
+  opacity: 0.9;
+}
+
+#save-json small {
+  color: var(--ink-muted);
+  opacity: 1;
+}
+
+.save-secondary-actions {
+  border-top: 1px solid var(--hairline);
+  padding-top: 12px;
+  margin-top: 18px;
+  justify-content: space-between;
+}
+
+.save-secondary-actions button {
+  background: transparent;
+  border-color: transparent;
+  padding-inline: 10px;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+
+#save-release {
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   Interactive feedback & Reduced Motion
+   ========================================================================== */
+@media (hover: hover) {
+  button:not(:disabled):not([aria-disabled="true"]):hover {
+    border-color: var(--border-strong);
+    background: var(--bg-raised);
+    color: var(--ink-primary);
+  }
+
+  #save-entry:not([aria-disabled="true"]):hover {
+    background: var(--pop-violet);
+    border-color: var(--pop-violet);
+    color: var(--ink-inverse);
+  }
+
+  #save-png:not(:disabled):hover {
+    background: var(--pop-violet-hover);
+    border-color: var(--pop-violet-hover);
+    color: var(--ink-inverse);
+  }
+
+  #parameter-apply:hover {
+    background: var(--pop-cobalt);
+    border-color: var(--pop-cobalt);
+    color: var(--ink-inverse);
+  }
+
+  #save-close:hover,
+  .save-secondary-actions button:not(:disabled):not([aria-disabled="true"]):hover {
+    border-color: var(--hairline);
+    background: var(--bg-raised);
+    color: var(--ink-primary);
+  }
+
+  .work-choice:hover {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .work-choice:hover .work-image {
+    border-color: var(--work-accent);
+  }
+
+  .work-choice:hover .work-caption {
+    border-bottom-color: var(--work-accent);
+  }
+
+  .work-choice:hover .work-link {
+    color: var(--work-accent);
+    text-decoration: underline;
+  }
+
+  a:hover,
+  summary:hover {
+    color: var(--pop-violet);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button:not(#save-entry):not(#stop-render),
+  .work-image,
+  .work-caption,
+  .work-link {
+    transition:
+      border-color var(--motion-fast) var(--motion-ease),
+      background-color var(--motion-fast) var(--motion-ease),
+      color var(--motion-fast) var(--motion-ease);
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints — 768×1024 (Tablet) & 390×844 (Mobile)
+   ========================================================================== */
+@media (min-width: 701px) and (max-width: 1090px) {
+  #app {
+    width: calc(100% - 48px);
+  }
+
+  .gallery-intro {
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .gallery-lead {
+    max-width: 24em;
+    font-size: 12.5px;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
+  .gallery-lead br {
+    display: none;
+  }
+
+  .work-caption {
+    grid-template-columns: 1fr;
+  }
+
+  .work-link {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 4px;
+  }
+
+  .studio {
+    grid-template-columns: minmax(0, 1fr) 308px;
+    gap: 24px;
+  }
+
+  .palette {
+    font-size: 10.5px;
+    padding: 6px 5px 5px;
+  }
+}
+
+@media (max-width: 700px) {
+  #app {
+    width: calc(100% - 32px);
+  }
+
+  .masthead {
+    min-height: 50px;
+  }
+
+  .brand {
+    font-size: 15.5px;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+
+  .masthead > span {
+    font-size: 11px;
+  }
+
+  .gallery-intro {
+    display: block;
+    margin-block: 16px 18px;
+  }
+
+  #gallery-title {
+    font-size: clamp(40px, 11vw, 56px);
+    margin-top: 6px;
+  }
+
+  .gallery-lead {
+    margin-top: 10px;
+    max-width: none;
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .gallery-lead br {
+    display: none;
+  }
+
+  .resume-line {
+    margin-bottom: 16px;
+    padding: 4px 10px 4px 6px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .work-choice {
+    display: grid;
+    grid-template-columns: minmax(128px, 42%) 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .work-caption {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin: 0;
+    padding: 4px 0;
+    border: 0;
+  }
+
+  .work-name {
+    font-size: 22px;
+  }
+
+  .work-note {
+    font-size: 12px;
+  }
+
+  .work-link {
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  .exhibit-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 8px;
+    padding-block: 4px 12px;
+  }
+
+  .work-heading,
+  .artwork-actions {
+    display: contents;
+  }
+
+  .breadcrumb,
+  #save-eligibility,
+  #saved-target-note,
+  #load-state,
+  #load-cancel {
+    grid-column: 1 / -1;
+  }
+
+  .breadcrumb {
+    margin-bottom: 0;
+  }
+
+  .artwork-action-buttons {
+    grid-area: 2 / 2;
+    justify-content: flex-end;
+  }
+
+  #live-work-title {
+    grid-area: 2 / 1;
+    font-size: 30px;
+    align-self: center;
+  }
+
+  .studio {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .art-frame {
+    position: static;
+    width: 100%;
+  }
+
+  .tool {
+    padding-block: 12px;
+  }
+
+  .parameter-map-frame {
+    width: min(100%, 360px);
+  }
+
+  #display-options dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  #display-options dd {
+    margin-bottom: 8px;
+  }
+
+  #explanation {
+    margin-top: 8px;
+  }
+
+  #explanation[open] {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .save-downloads {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .masthead > span {
+    display: none;
+  }
+
+  .composition-controls {
+    gap: 6px;
+  }
+
+  .exhibit-heading {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .work-heading,
+  .artwork-actions {
+    display: block;
+  }
+}

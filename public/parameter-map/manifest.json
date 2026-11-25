@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "assetVersion": "SAM-005-fixed-mandelbrot-v1",
+  "generatorVersion": "SAM-005-map-generator-v1",
+  "numericImplementation": "SAM-003-N-v1 / JavaScript Number / binary64",
+  "settings": {
+    "contractVersion": "SAM-003-N-v1",
+    "mode": "mandelbrot",
+    "precision": "float64",
+    "width": 288,
+    "height": 192,
+    "maxIterations": 128,
+    "escapeRadius": 2,
+    "pixelSampling": "center-top-left-y-up",
+    "viewport": {
+      "reMin": -2,
+      "reMax": 1,
+      "imMin": -1,
+      "imMax": 1
+    }
+  },
+  "palette": {
+    "id": "lagoon",
+    "version": "1.0.0"
+  },
+  "field": {
+    "path": "/parameter-map/mandelbrot-field.u16",
+    "encoding": "uint16le",
+    "bytes": 110592,
+    "sha256": "468dfdfca56563ae086c3330f9954e5a520083c38015f39ca308b4994d5f893f"
+  },
+  "rgba": {
+    "path": "/parameter-map/mandelbrot-rgba.bin",
+    "encoding": "rgba8-row-major",
+    "bytes": 221184,
+    "sha256": "9b371c7403fe9b3621c3741b8d9c7c12a422990f8d85952ff397ef0c93f83be4"
+  },
+  "image": {
+    "path": "/parameter-map/mandelbrot.png",
+    "encoding": "png-rgba8",
+    "bytes": 10360,
+    "sha256": "be7f727ed834b0117e192d3f53d4aa1800e3ad157b8bd6bf0f11df22203400e6"
+  },
+  "sourceSha256": {
+    "scripts/generate-parameter-map.mjs": "0e54317793225a879d8ca77f866c97644091d981dc1f093789f6bead4da81ceb",
+    "src/parameter/map-spec.ts": "4de04f7a0084ace3b29178926cae75598cd10f4e31b3158b75bd04cfac260f94",
+    "src/numerics/contract.ts": "efb1d10e16632e37fd72be70627e7b9fdde703294ac7197cd3d6333f38ef3b19",
+    "src/numerics/engine.ts": "e3022443fe746628834b867fe772f37a8156c50d9733039790df0171fb345c37",
+    "src/numerics/palette.ts": "abf4ec676239291ad0f6e283e67bd9fd71020dc12f091eb91c81e3c2e6e0f9b5",
+    "src/color.ts": "77a0b0498bbc58ca3c71eb800449bd97362ae303f7188d8171e00f880a6d27a1"
+  },
+  "limits": "Finite N=128 and binary64; neither membership nor connectivity is proved. Pointer coordinates are continuous and separate from these pixel centers."
+}

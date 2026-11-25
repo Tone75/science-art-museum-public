@@ -1,0 +1,880 @@
+{
+  "schemaVersion": 1,
+  "workVersion": "SAM-006-A-works-v1",
+  "generatorVersion": "SAM-006-A-generator-v1",
+  "displayVersion": "SAM-006-A-display-v1",
+  "initialWorkId": "tide",
+  "restoreChanges": [
+    "c",
+    "displayPalette",
+    "quality",
+    "draft"
+  ],
+  "numericalContract": "SAM-003-N-v1; integer first escape n=0..N, sentinel65535",
+  "palettes": [
+    {
+      "id": "violet-pop",
+      "label": "Electric Violet",
+      "note": "ヴァイオレット",
+      "legacyBase": "lagoon",
+      "group": "pop"
+    },
+    {
+      "id": "cobalt-pop",
+      "label": "Cobalt Pop",
+      "note": "コバルト＆赤",
+      "legacyBase": "ember",
+      "group": "pop"
+    },
+    {
+      "id": "crimson-pop",
+      "label": "Crimson Bloom",
+      "note": "クリムゾン",
+      "legacyBase": "lagoon",
+      "group": "pop"
+    },
+    {
+      "id": "lagoon",
+      "label": "Lagoon",
+      "note": "青緑",
+      "legacyBase": "lagoon",
+      "group": "archive"
+    },
+    {
+      "id": "ember",
+      "label": "Ember",
+      "note": "琥珀",
+      "legacyBase": "ember",
+      "group": "archive"
+    },
+    {
+      "id": "porcelain",
+      "label": "Porcelain",
+      "note": "白磁と墨",
+      "legacyBase": "lagoon",
+      "group": "archive"
+    }
+  ],
+  "newPalette": {
+    "id": "porcelain",
+    "version": "1.0.0",
+    "period": 96,
+    "stops": [
+      {
+        "at": 0,
+        "rgb": [
+          19,
+          34,
+          47
+        ]
+      },
+      {
+        "at": 14,
+        "rgb": [
+          69,
+          99,
+          103
+        ]
+      },
+      {
+        "at": 36,
+        "rgb": [
+          239,
+          229,
+          209
+        ]
+      },
+      {
+        "at": 58,
+        "rgb": [
+          164,
+          111,
+          69
+        ]
+      },
+      {
+        "at": 79,
+        "rgb": [
+          244,
+          236,
+          219
+        ]
+      },
+      {
+        "at": 95,
+        "rgb": [
+          19,
+          34,
+          47
+        ]
+      }
+    ],
+    "unescapedRGB": [
+      236,
+      230,
+      214
+    ]
+  },
+  "popPalettes": {
+    "violet-pop": {
+      "id": "violet-pop",
+      "version": "1.0.0",
+      "knee": 3.4,
+      "maxRef": 340,
+      "unescapedRGB": [
+        252,
+        245,
+        255
+      ],
+      "stops": [
+        {
+          "at": 0,
+          "rgb": [
+            13,
+            11,
+            26
+          ]
+        },
+        {
+          "at": 0.14,
+          "rgb": [
+            24,
+            18,
+            68
+          ]
+        },
+        {
+          "at": 0.28,
+          "rgb": [
+            40,
+            56,
+            228
+          ]
+        },
+        {
+          "at": 0.44,
+          "rgb": [
+            122,
+            40,
+            255
+          ]
+        },
+        {
+          "at": 0.58,
+          "rgb": [
+            204,
+            52,
+            224
+          ]
+        },
+        {
+          "at": 0.72,
+          "rgb": [
+            248,
+            32,
+            92
+          ]
+        },
+        {
+          "at": 0.86,
+          "rgb": [
+            255,
+            148,
+            186
+          ]
+        },
+        {
+          "at": 1,
+          "rgb": [
+            252,
+            244,
+            255
+          ]
+        }
+      ]
+    },
+    "cobalt-pop": {
+      "id": "cobalt-pop",
+      "version": "1.0.0",
+      "knee": 1.8,
+      "maxRef": 320,
+      "unescapedRGB": [
+        242,
+        26,
+        72
+      ],
+      "stops": [
+        {
+          "at": 0,
+          "rgb": [
+            14,
+            24,
+            92
+          ]
+        },
+        {
+          "at": 0.13,
+          "rgb": [
+            22,
+            52,
+            206
+          ]
+        },
+        {
+          "at": 0.26,
+          "rgb": [
+            38,
+            98,
+            255
+          ]
+        },
+        {
+          "at": 0.39,
+          "rgb": [
+            124,
+            52,
+            255
+          ]
+        },
+        {
+          "at": 0.5,
+          "rgb": [
+            236,
+            230,
+            255
+          ]
+        },
+        {
+          "at": 0.66,
+          "rgb": [
+            246,
+            30,
+            78
+          ]
+        },
+        {
+          "at": 0.83,
+          "rgb": [
+            138,
+            46,
+            255
+          ]
+        },
+        {
+          "at": 1,
+          "rgb": [
+            248,
+            244,
+            255
+          ]
+        }
+      ]
+    },
+    "crimson-pop": {
+      "id": "crimson-pop",
+      "version": "1.0.0",
+      "knee": 3.8,
+      "maxRef": 260,
+      "unescapedRGB": [
+        18,
+        28,
+        124
+      ],
+      "stops": [
+        {
+          "at": 0,
+          "rgb": [
+            250,
+            246,
+            248
+          ]
+        },
+        {
+          "at": 0.15,
+          "rgb": [
+            253,
+            218,
+            232
+          ]
+        },
+        {
+          "at": 0.33,
+          "rgb": [
+            246,
+            28,
+            80
+          ]
+        },
+        {
+          "at": 0.53,
+          "rgb": [
+            142,
+            34,
+            252
+          ]
+        },
+        {
+          "at": 0.73,
+          "rgb": [
+            30,
+            72,
+            250
+          ]
+        },
+        {
+          "at": 0.88,
+          "rgb": [
+            112,
+            146,
+            255
+          ]
+        },
+        {
+          "at": 1,
+          "rgb": [
+            246,
+            248,
+            255
+          ]
+        }
+      ]
+    }
+  },
+  "works": [
+    {
+      "id": "tide",
+      "title": "潮目",
+      "name": "潮目",
+      "note": "紫の渦が、鮮やかにほどける。",
+      "c": {
+        "re": -0.8,
+        "im": 0.156
+      },
+      "palette": "violet-pop",
+      "quality": "full",
+      "image": "/live-art/tide-full.png",
+      "thumbnail": "/live-art/tide-preview.png",
+      "width": 768,
+      "height": 768,
+      "selectionChanges": [
+        "c",
+        "displayPalette",
+        "quality",
+        "Julia fixed viewport and matching W/H/N"
+      ],
+      "assets": [
+        {
+          "quality": "preview",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": -0.8,
+              "im": 0.156
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": -0.8,
+              "im": 0.156
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "lagoon",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "violet-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 131072,
+            "sha256": "dbcac49ab41bcd526a406f33beeab6464f0df68f9d9cbc8c2b27b0720632c1f2"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 262144,
+            "sha256": "535d850b29853467b3daa62e2cfa9318195ac20cba39778cdffe3582280ff832"
+          },
+          "image": {
+            "path": "/live-art/tide-preview.png",
+            "encoding": "png-rgba8",
+            "bytes": 17142,
+            "decodedBytes": 262144,
+            "sha256": "439eb3e782f7094177f2aac729aa123a078633e0113cb3cfbd093d9dd4b8b3f6"
+          }
+        },
+        {
+          "quality": "full",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": -0.8,
+              "im": 0.156
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": -0.8,
+              "im": 0.156
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "lagoon",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "violet-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 1179648,
+            "sha256": "f9fa4156f70d990cf5ccfdb09595ee2855acafb93c55b148a30d1d85dc29b1f5"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 2359296,
+            "sha256": "c39e855f1d91687ec66968b51189a67ca6ef6e4a71ea7efca645c06097ed8515"
+          },
+          "image": {
+            "path": "/live-art/tide-full.png",
+            "encoding": "png-rgba8",
+            "bytes": 172562,
+            "decodedBytes": 2359296,
+            "sha256": "638f850c5504c459e4b80449b568f79b9966277c8f36f305ccd3bcc321a697b0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "twin",
+      "title": "双環",
+      "name": "双環",
+      "note": "青い波に、赤い輪郭がうねる。",
+      "c": {
+        "re": -1,
+        "im": 0
+      },
+      "palette": "cobalt-pop",
+      "quality": "full",
+      "image": "/live-art/twin-full.png",
+      "thumbnail": "/live-art/twin-preview.png",
+      "width": 768,
+      "height": 768,
+      "selectionChanges": [
+        "c",
+        "displayPalette",
+        "quality",
+        "Julia fixed viewport and matching W/H/N"
+      ],
+      "assets": [
+        {
+          "quality": "preview",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": -1,
+              "im": 0
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": -1,
+              "im": 0
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "ember",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "cobalt-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 131072,
+            "sha256": "77c6f743773466ef9508f2a77cac7444823507791a6eafc85353fb90959128b3"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 262144,
+            "sha256": "def1b2183e0de1c60f7f8f99689c252e8b1d8015451ef3031db07e426001c2f5"
+          },
+          "image": {
+            "path": "/live-art/twin-preview.png",
+            "encoding": "png-rgba8",
+            "bytes": 5178,
+            "decodedBytes": 262144,
+            "sha256": "f5625f103ac4a7ce672c254237274a23e0632ef85af26d996b66a9b9e8a70eab"
+          }
+        },
+        {
+          "quality": "full",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": -1,
+              "im": 0
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": -1,
+              "im": 0
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "ember",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "cobalt-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 1179648,
+            "sha256": "fc9c62e107ebd7ed1f761c3ab1732a542e2f0b1b043e4076831eaf2d5ea7caa9"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 2359296,
+            "sha256": "d79bd116715b61bcdfad74a3e0d7ac9ff29a08bc66c17b8986605b5f8751a17f"
+          },
+          "image": {
+            "path": "/live-art/twin-full.png",
+            "encoding": "png-rgba8",
+            "bytes": 27822,
+            "decodedBytes": 2359296,
+            "sha256": "5aeb52da25b85a7a54d14bd556511b0ddb4ceebe06077a5b729b297c270c1cdb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "petals",
+      "title": "花片",
+      "name": "花片",
+      "note": "真紅の花に、青と紫がひらく。",
+      "c": {
+        "re": 0.285,
+        "im": 0.01
+      },
+      "palette": "crimson-pop",
+      "quality": "full",
+      "image": "/live-art/petals-full.png",
+      "thumbnail": "/live-art/petals-preview.png",
+      "width": 768,
+      "height": 768,
+      "selectionChanges": [
+        "c",
+        "displayPalette",
+        "quality",
+        "Julia fixed viewport and matching W/H/N"
+      ],
+      "assets": [
+        {
+          "quality": "preview",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": 0.285,
+              "im": 0.01
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": 0.285,
+              "im": 0.01
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 256,
+            "height": 256,
+            "maxIterations": 128,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "lagoon",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "crimson-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 131072,
+            "sha256": "cfe281704ffd98132e0bf9e21ec3858bbac53ccc63d59c50cfd2a22cc40aa276"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 262144,
+            "sha256": "f6672ad0d2b9f2783e0f413d285c71df3c13e2d5c52c92bf47f39477b45dc15f"
+          },
+          "image": {
+            "path": "/live-art/petals-preview.png",
+            "encoding": "png-rgba8",
+            "bytes": 19119,
+            "decodedBytes": 262144,
+            "sha256": "9407368961980aa9839bbd8a2285702b55966402c43a4498802c616aa812abcc"
+          }
+        },
+        {
+          "quality": "full",
+          "settings": {
+            "contractVersion": "SAM-003-N-v1",
+            "precision": "float64",
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "mode": "julia",
+            "c": {
+              "re": 0.285,
+              "im": 0.01
+            }
+          },
+          "legacyNumericalBase": {
+            "schemaVersion": 1,
+            "renderer": {
+              "id": "cpu-worker",
+              "version": "1.0.0",
+              "precision": "float64"
+            },
+            "c": {
+              "re": 0.285,
+              "im": 0.01
+            },
+            "viewport": {
+              "reMin": -1.6,
+              "reMax": 1.6,
+              "imMin": -1.6,
+              "imMax": 1.6
+            },
+            "width": 768,
+            "height": 768,
+            "maxIterations": 512,
+            "escapeRadius": 2,
+            "pixelSampling": "center-top-left-y-up",
+            "palette": {
+              "id": "lagoon",
+              "version": "1.0.0"
+            }
+          },
+          "display": {
+            "version": "SAM-006-A-display-v1",
+            "palette": {
+              "id": "crimson-pop",
+              "version": "1.0.0"
+            }
+          },
+          "field": {
+            "encoding": "uint16le",
+            "bytes": 1179648,
+            "sha256": "e3cd338022ab92bdc3ac2b2c8a2967d93eaf25e6466f7cd53869cbec9828cc3f"
+          },
+          "rgba": {
+            "encoding": "rgba8-row-major",
+            "bytes": 2359296,
+            "sha256": "90b4017ec07e09de2a45bb93ce03f05ed8bfdeb7577fa0ba53d629f910ea56fd"
+          },
+          "image": {
+            "path": "/live-art/petals-full.png",
+            "encoding": "png-rgba8",
+            "bytes": 124853,
+            "decodedBytes": 2359296,
+            "sha256": "ff8ec517ab8e7d0d714c18d073e59d122186bd0b44b86e589085efd7f9ba1cee"
+          }
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "imagesEncodedBytes": 366676,
+    "imagesDecodedBytes": 7864320,
+    "paletteLookupBytes": 4905,
+    "upperBytes": 8235901,
+    "method": "Conservative managed cache budget for all six encoded and decoded image assets plus precomputed palette LUTs. The entry displays the three full-quality images at CSS size; this is not measured browser process memory."
+  },
+  "sourceSha256": {
+    "scripts/generate-live-art.mjs": "11bbe7c2ed4b11200b963bc99165c57597c2e1623b152a06a13f18ccc82628ce",
+    "src/art/palette.ts": "c6ba511d809d2ffbb48ebd0028baacdc0b8a87568bc115682785725cd4211267",
+    "src/art/works.ts": "8681c58bb9077a4afa07652d64cba5b834a69ff48bb953f4adccc03608375e78",
+    "src/numerics/engine.ts": "e3022443fe746628834b867fe772f37a8156c50d9733039790df0171fb345c37",
+    "src/numerics/contract.ts": "efb1d10e16632e37fd72be70627e7b9fdde703294ac7197cd3d6333f38ef3b19",
+    "src/numerics/legacy.ts": "2e8986f14d36f335400547f726d4570a5a829cec060c24518607218eb1de4ff1",
+    "src/numerics/palette.ts": "abf4ec676239291ad0f6e283e67bd9fd71020dc12f091eb91c81e3c2e6e0f9b5",
+    "src/color.ts": "77a0b0498bbc58ca3c71eb800449bd97362ae303f7188d8171e00f880a6d27a1",
+    "src/config.ts": "13de78f35623fbcd6a594e9c8812c093d834d3e6f5f3830e338b6f25ed7994c1"
+  },
+  "limitations": "Same Julia exhibition with three works; finite binary64 escape fields, not proof of membership or connectivity. No physical marbling model, blur, warp or added scalar field."
+}
